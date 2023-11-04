@@ -33,7 +33,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const createAccLink = document.querySelector("a#createAccLink");
 
     logInLink.addEventListener("click", logIn);
-    createAccLink.addEventListener("click", createAcc)
+    createAccLink.addEventListener("click", createAcc);
+    document.querySelector("input#showPass").addEventListener("click", displayPass);
+    document.querySelector("input#showPass2").addEventListener("click", displayPass2);
     registrationForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const firstName = document.querySelector("input#firstNameInput").value;
@@ -95,4 +97,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
         }
         return false;
     }
+
+    function displayPass() {
+        let x = document.getElementById("pwdInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }    
+
+    function displayPass2() {
+        let x = document.getElementById("registeredPass");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }   
 });
