@@ -1,12 +1,14 @@
 body {
-    display:flex;
+    color:white;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     height: 100vh;
+    width: 100vw;
     margin: none;
-    background-color: #F4ECE1;
+    background-color:black;
 }
 .hidden {
     display: none;
@@ -14,6 +16,16 @@ body {
 button {
     padding: 10px;
     margin: 25px 25px 0px 25px;
+    background-color:black;
+    color:white;
+    font-style: oblique;
+    font-weight: 900;
+    border: 3px solid white;
+    border-radius: 10px;
+    transition: transform 0.3s ease 0s;
+}
+button:hover {
+    transform: translateY(-5px);
 }
 p {
     margin: 0px;
@@ -21,3 +33,94 @@ p {
 a {
     margin: 0px;
 }
+.bkg-style {
+    padding: 20px;
+    background-color: rgb(42, 41, 41);
+    border-radius: 30px;
+}
+.bkg-style2 {
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+form {
+    padding: 20px;
+    background-color:#202020;
+    border-radius: 5px;
+}
+input {
+    margin: 5px 0px 5px 0px;
+    background-color:#202020;
+    padding: 6px;
+    border: 1px solid white;
+    /* border-radius: 5px; */
+    color: white;
+}
+
+
+
+
+
+
+
+/* 
+body {
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    font-weight: 900;
+    border: 3px solid white;
+    border-radius: 10px;
+    transition: transform 0.3s ease 0s;
+}
+
+button:hover {
+    transform: translateY(-5px);
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    margin: 0;
+}
+
+.bkg-style {
+    padding: 20px;
+    background-color: #333;
+}
+
+.bkg-style2 {
+    padding: 10px;
+    background-color: #fff;
+}
+
+form {
+    padding: 20px;
+    background-color: #202020;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+} */

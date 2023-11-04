@@ -30,8 +30,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const logInForm = document.querySelector("form#logInForm");
     const logInMessage = document.querySelector("p#welcomeBackMessage");
     const logInLink = document.querySelector("a#logInLink");
+    const createAccLink = document.querySelector("a#createAccLink");
 
     logInLink.addEventListener("click", logIn);
+    createAccLink.addEventListener("click", createAcc)
     registrationForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const firstName = document.querySelector("input#firstNameInput").value;
@@ -40,13 +42,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
         const password = document.querySelector("input#pwdInput").value;
         let newUser = new Registration(firstName, lastName, email, password);
 
+        // Resets form fields after submission
+        document.querySelector("input#firstNameInput").value = null;
+        document.querySelector("input#lastNameInput").value = null;
+        document.querySelector("input#emailInput").value = null;
+        document.querySelector("input#pwdInput").value = null;
+
         if (!validEmail(email)) {
             registrationMessage.innerText = "Please enter a valid email address."
             return;
         }
 
         registeredUser.addUser(newUser);
-        registrationMessage.innerText = "Registration successful for " + newUser.firstName + " " + newUser.lastName + " with email " + newUser.email;
+        registrationMessage.innerText = "Registration successful for " + newUser.firstName + " " + newUser.lastName + " using " + newUser.email;
     });
 
     logInForm.addEventListener("submit", (e) => {
@@ -72,7 +80,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
         document.querySelector("form#registrationForm").classList.add("hidden");
         document.querySelector("form#logInForm").classList.remove("hidden");
     }
-    
+
+    function createAcc() {
+        document.querySelector("form#registrationForm").classList.remove("hidden");
+        document.querySelector("form#logInForm").classList.add("hidden");
+    }
+
     function registered(email, password) {
         for (let userId in registeredUser.registeredUsers) {
             const user = registeredUser.getAccount(userId);
