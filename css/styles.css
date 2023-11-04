@@ -1,0 +1,15 @@
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    margin: none;
+    background-color: #F4ECE1;
+}
+
+button {
+    padding: 10px;
+    margin: 25px;
+}
