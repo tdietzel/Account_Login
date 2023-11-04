@@ -8,8 +8,16 @@ body {
     margin: none;
     background-color: #F4ECE1;
 }
-
+.hidden {
+    display: none;
+}
 button {
     padding: 10px;
-    margin: 25px;
+    margin: 25px 25px 0px 25px;
+}
+p {
+    margin: 0px;
+}
+a {
+    margin: 0px;
 }
