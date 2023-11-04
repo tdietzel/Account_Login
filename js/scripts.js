@@ -1,5 +1,5 @@
 function RegisteredUser() {
-    this.registeredUsers = {}; // Store registered users
+    this.registeredUsers = {};
     this.accountId = 0;
 }
 RegisteredUser.prototype.addUser = function(newUser) {
@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault();
     const registrationForm = document.querySelector("form#registrationForm");
     const registrationMessage = document.querySelector("p#registrationMessage");
+    const logInForm = document.querySelector("form#logInForm");
+    const logInMessage = document.querySelector("p#welcomeBackMessage");
     const logInLink = document.querySelector("a#logInLink");
 
     logInLink.addEventListener("click", logIn);
@@ -47,6 +49,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
         registrationMessage.innerText = "Registration successful for " + newUser.firstName + " " + newUser.lastName + " with email " + newUser.email;
     });
 
+    logInForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const registeredEmail = document.querySelector("input#registeredEmail").value;
+        const registeredPass = document.querySelector("input#registeredPass").value;
+        
+
+        if(registered(registeredEmail, registeredPass)) {
+            logInMessage.innerText = "Welcome Back"
+        } else {
+            logInMessage.innerText = "User not found. Please register first.";
+        }
+    });
+
     function validEmail(email) {
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return emailRegex.test(email);
@@ -56,5 +71,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
         e.preventDefault();
         document.querySelector("form#registrationForm").classList.add("hidden");
         document.querySelector("form#logInForm").classList.remove("hidden");
+    }
+    
+    function registered(email, password) {
+        for (let userId in registeredUser.registeredUsers) {
+            const user = registeredUser.getAccount(userId);
+            if (user.email === email && user.password === password) {
+                return true;
+            }
+        }
+        return false;
     }
 });
