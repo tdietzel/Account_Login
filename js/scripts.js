@@ -56,9 +56,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
         }
 
         registeredUser.addUser(newUser);
-        registrationMessage.innerText = "Registration successful for " + newUser.firstName + " " + newUser.lastName + " using " + newUser.email;
+        logIn(e, newUser);
     });
-
     logInForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const registeredEmail = document.querySelector("input#registeredEmail").value;
@@ -77,10 +76,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
         return emailRegex.test(email);
     }
 
-    function logIn(e) {
+    function logIn(e, newUser) {
         e.preventDefault();
         document.querySelector("form#registrationForm").classList.add("hidden");
         document.querySelector("form#logInForm").classList.remove("hidden");
+        document.querySelector("input#registeredEmail").value = newUser.email;
+        logInMessage.innerText = "Registration successful for " + newUser.firstName + " " + newUser.lastName + " using " + newUser.email;
     }
 
     function createAcc() {
